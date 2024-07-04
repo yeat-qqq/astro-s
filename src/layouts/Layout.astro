@@ -1,0 +1,88 @@
+---
+const { title } = Astro.props;
+---
+
+<html lang="zh-CN">
+	<head>
+		<meta charset="utf-8" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<meta name="viewport" content="width=device-width" />
+		<meta name="generator" content={Astro.generator} />
+		<title>{title}</title>
+		<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;700&display=swap" rel="stylesheet">
+	</head>
+	<body>
+		<header>
+			<h1>女生救助服务平台</h1>
+			<nav>
+				<ul>
+					<li><a href="/">首页</a></li>
+					<li><a href="/help">需要帮助</a></li>
+					<li><a href="/shop">需要购买</a></li>
+					<li><a href="/jobs">需要工作</a></li>
+					<li><a href="/forum">女生论坛</a></li>
+					<li><a href="/other-services">其他服务</a></li>
+				</ul>
+			</nav>
+		</header>
+		
+		<slot />
+
+		<footer>
+			<p>&copy; 2023 女生救助服务平台. 保留所有权利。</p>
+		</footer>
+	</body>
+</html>
+
+<style is:global>
+	:root {
+		--primary-color: #ff69b4;
+		--secondary-color: #f8f8f8;
+		--text-color: #333;
+		--link-color: #ff1493;
+	}
+
+	body {
+		font-family: 'Noto Sans SC', sans-serif;
+		line-height: 1.6;
+		color: var(--text-color);
+		background-color: var(--secondary-color);
+		margin: 0;
+		padding: 0;
+	}
+
+	header {
+		background-color: var(--primary-color);
+		color: white;
+		text-align: center;
+		padding: 1rem;
+	}
+
+	header h1 {
+		margin: 0;
+		font-size: 2.5rem;
+	}
+
+	nav ul {
+		list-style-type: none;
+		padding: 0;
+	}
+
+	nav ul li {
+		display: inline;
+		margin: 0 10px;
+	}
+
+	nav a {
+		color: white;
+		text-decoration: none;
+		font-weight: bold;
+	}
+
+	footer {
+		text-align: center;
+		padding: 1rem;
+		background-color: var(--primary-color);
+		color: white;
+	}
+</style>

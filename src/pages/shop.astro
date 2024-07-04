@@ -1,0 +1,106 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const products = [
+    { name: "女性护理套", price: "¥99", image: "/images/care-kit.jpg", link: "https://www.jd.com/chanpin/2633366.html" },
+    { name: "防身喷雾", price: "¥59", image: "/images/pepper-spray.jpg", link: "https://www.taobao.com/list/product/%E9%98%B2%E8%BA%AB%E5%96%B7.htm" },
+    { name: "女性健康书", price: "¥39", image: "/images/health-book.jpg", link: "https://m.douban.com/book/review/14999986/" },
+    { name: "运动瑜伽垫", price: "¥129", image: "/images/yoga-mat.jpg", link: "https://my.world.taobao.com/item/567808309625.htm?spm=a21wu.24122187.recommend-goods.1" },
+];
+---
+
+<Layout title="需要购买 | 女生救助服务平台">
+    <main>
+        <h1>需要购买</h1>
+        <p class="intro">浏览我们精选的女性用品和服务，为您的生活增添便利与安全</p>
+        <div class="product-grid">
+            {products.map(product => (
+                <div class="product-card">
+                    <a href={product.link} class="product-link">
+                        <div class="product-image">
+                            <img src={product.image} alt={product.name} />
+                        </div>
+                        <h3 class="product-name">{product.name}</h3>
+                        <p class="product-price">{product.price}</p>
+                    </a>
+                    <a href={product.link} class="add-to-cart">加入购物车</a>
+                </div>
+            ))}
+        </div>
+    </main>
+</Layout>
+
+<style>
+    main {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 2rem;
+    }
+    h1 {
+        color: var(--primary-color);
+        text-align: center;
+        margin-bottom: 1rem;
+    }
+    .intro {
+        text-align: center;
+        margin-bottom: 2rem;
+        color: #666;
+    }
+    .product-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 2rem;
+    }
+    .product-card {
+        background-color: white;
+        border-radius: 8px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        overflow: hidden;
+        display: flex;
+        flex-direction: column;
+    }
+    .product-link {
+        text-decoration: none;
+        color: inherit;
+        display: flex;
+        flex-direction: column;
+        flex-grow: 1;
+    }
+    .product-image {
+        height: 200px;
+        overflow: hidden;
+    }
+    .product-image img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: transform 0.3s ease;
+    }
+    .product-link:hover .product-image img {
+        transform: scale(1.05);
+    }
+    .product-name {
+        padding: 1rem 1rem 0.5rem;
+        margin: 0;
+        font-size: 1.1rem;
+    }
+    .product-price {
+        padding: 0 1rem 1rem;
+        margin: 0;
+        font-weight: bold;
+        color: var(--primary-color);
+    }
+    .add-to-cart {
+        background-color: var(--link-color);
+        color: white;
+        border: none;
+        padding: 0.75rem;
+        width: 100%;
+        font-size: 1rem;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+    }
+    .add-to-cart:hover {
+        background-color: var(--primary-color);
+    }
+</style>

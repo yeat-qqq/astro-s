@@ -1,0 +1,74 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout title="需要帮助 | 女生救助服务平台">
+	<main>
+		<h1>需要帮助</h1>
+		<section class="help-options">
+			<div class="help-card">
+				<h2>心理咨询</h2>
+				<p>提供专业的心理咨询服务,帮助您解决情感、学业或职场压力。</p>
+				<a href="https://www.drcanziwang.com/blank" class="btn">了解更多 &rarr;</a>
+			</div>
+			<div class="help-card">
+				<h2>法律援助</h2>
+				<p>为遭受不公平对待的女性提供法律咨询和援助。</p>
+				<a href="https://m.acftu.org/wjzl/flfg/202310/t20231012_835422.html" class="btn">了解更多 &rarr;</a>
+			</div>
+			<div class="help-card">
+				<h2>紧急庇护</h2>
+				<p>为遭受家庭暴力或处于危险中的女性提供临时庇护所。</p>
+				<a href="http://www.equality-beijing.org/zxlist.aspx" class="btn">了解更多 &rarr;</a>
+			</div>
+			<div class="help-card">
+				<h2>职业技能培训</h2>
+				<p>提供各种职业技能培训,帮助您提升就业竞争力。</p>
+				<a href="https://www.manpowergrc.com/info/id_828" class="btn">了解更多 &rarr;</a>
+			</div>
+		</section>
+	</main>
+</Layout>
+
+<style>
+	main {
+		max-width: 1200px;
+		margin: 0 auto;
+		padding: 2rem;
+	}
+	h1 {
+		color: var(--primary-color);
+		text-align: center;
+		margin-bottom: 2rem;
+	}
+	.help-options {
+		display: grid;
+		grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+		gap: 2rem;
+	}
+	.help-card {
+		background-color: white;
+		border-radius: 8px;
+		box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+		padding: 1.5rem;
+		transition: transform 0.3s ease;
+	}
+	.help-card:hover {
+		transform: translateY(-5px);
+	}
+	.help-card h2 {
+		color: var(--primary-color);
+	}
+	.btn {
+		display: inline-block;
+		background-color: var(--link-color);
+		color: white;
+		padding: 0.5rem 1rem;
+		text-decoration: none;
+		border-radius: 4px;
+		transition: background-color 0.3s ease;
+	}
+	.btn:hover {
+		background-color: var(--primary-color);
+	}
+</style>

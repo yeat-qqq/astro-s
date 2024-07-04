@@ -1,0 +1,93 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const services = [
+    { 
+        name: "女性健康讲座", 
+        description: "定期举办女性健康知识讲座,提高健康意识。", 
+        details: "我们邀请专业医生和健康专家，每月举办不同主题的健康讲座，涵盖生理健康、心理健康、营养饮食等多个方面。参与者可以直接与专家交流，获得个性化的健康建议。"
+    },
+    { 
+        name: "职业技能培训", 
+        description: "提供各种职业技能培训,助力职业发展。", 
+        details: "我们提供多样化的职业技能培训课程，包括但不限于：办公软件使用、项目管理、沟通技巧、领导力培养等。这些课程由行业专家授课，旨在提升女性在职场中的竞争力。"
+    },
+    { 
+        name: "法律咨询服务", 
+        description: "为女性提供免费的法律咨询服务。", 
+        details: "我们的法律团队由经验丰富的女性律师组成，专门处理与女性权益相关的法律问题，如婚姻家庭、劳动权益、性骚扰等。我们提供初步的免费咨询，帮助女性了解自己的权利和可能的法律途径。"
+    },
+    { 
+        name: "心理辅导", 
+        description: "专业心理咨询师提供一对一心理辅导。", 
+        details: "我们的心理咨询团队由持证心理咨询师组成，提供保密的一对一心理辅导服务。无论是面对工作压力、情感问题，还是其他心理困扰，我们都会提供专业、温暖的支持。"
+    },
+    { 
+        name: "女性创业支持", 
+        description: "为女性创业者提供指导和资源支持。", 
+        details: "我们为有创业想法的女性提供全方位的支持，包括创业培训课程、导师指导、融资渠道介绍等。我们还定期组织女性创业者交流会，促进资源共享和经验交流。"
+    },
+    { 
+        name: "安全自护课程", 
+        description: "教授实用的自我保护技能和知识。", 
+        details: "我们的安全自护课程包括理论和实践两部分，教授基本的自卫技巧、危险识别能力、应急处理方法等。课程由专业的自护教练指导，旨在提高女性的安全意识和自保能力。"
+    },
+];
+---
+
+<Layout title="其他服务 | 女生救助服务平台">
+    <main>
+        <h1>其他服务</h1>
+        <p class="intro">探索我们提供的更多服务,助力您的全面发展。每项服务都经过精心设计，旨在满足现代女性的多样化需求。</p>
+        <div class="services-grid">
+            {services.map(service => (
+                <div class="service-card">
+                    <h3>{service.name}</h3>
+                    <p><strong>{service.description}</strong></p>
+                    <p class="details">{service.details}</p>
+                </div>
+            ))}
+        </div>
+    </main>
+</Layout>
+
+<style>
+    main {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 2rem;
+    }
+    h1 {
+        color: var(--primary-color);
+        text-align: center;
+    }
+    .intro {
+        text-align: center;
+        margin-bottom: 2rem;
+        max-width: 800px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    .services-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 2rem;
+    }
+    .service-card {
+        background-color: white;
+        border-radius: 8px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        padding: 1.5rem;
+    }
+    .service-card h3 {
+        color: var(--primary-color);
+        margin-bottom: 0.5rem;
+    }
+    .service-card p {
+        margin-bottom: 1rem;
+    }
+    .details {
+        font-size: 0.9em;
+        color: #666;
+    }
+</style>

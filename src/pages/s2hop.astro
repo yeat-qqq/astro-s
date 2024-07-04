@@ -1,0 +1,92 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const products = [
+    { 
+        name: "女性护理套装", 
+        image: "/images/care-kit.jpg",
+        description: "精心挑选的护理产品，包含日常所需的各种护肤品和卫生用品。适合各种肤质，让您在忙碌的生活中也能轻松保持美丽与健康。这套护理套装包括温和洁面乳、保湿面霜、护手霜和卫生巾等必需品，全面照顾您的日常需求。"
+    },
+    { 
+        name: "防身喷雾", 
+        image: "/images/pepper-spray.jpg",
+        description: "小巧便携的防身喷雾，可以快速制服攻击者。无毒无害，使用安全。随身携带，为您的安全多一份保障。喷雾效果持久，射程远，操作简单，是女性外出必备的安全装备。我们还提供使用培训，确保您在紧急情况下能够正确使用。"
+    },
+    { 
+        name: "女性健康书籍", 
+        image: "/images/health-book.jpg",
+        description: "由知名女性健康专家编写，涵盖生理、心理、营养等多个方面。通俗易懂，是您了解自身健康的最佳指南。书中包含大量实用建议和科学知识，帮助您更好地了解和照顾自己的身体。定期阅读，提高健康意识，预防疾病，享受健康生活。"
+    },
+    { 
+        name: "运动瑜伽垫", 
+        image: "/images/yoga-mat.jpg",
+        description: "采用环保材料制作，防滑耐用。适合瑜伽、普拉提等多种运动。帮助您在家中也能轻松进行健身活动，保持身心健康。瑜伽垫厚度适中，既能提供良好缓冲，又不影响平衡感。便于清洁和收纳，是居家运动的理想选择。"
+    },
+];
+---
+
+<Layout title="女性用品介绍 | 女生救助服务平台">
+    <main>
+        <h1>女性用品介绍</h1>
+        <p class="intro">以下是我们精心挑选的女性用品，每一件都旨在提升您的生活品质，增添便利与安全。这些产品经过严格筛选，确保质量和实用性。</p>
+        <div class="product-grid">
+            {products.map(product => (
+                <div class="product-card">
+                    <img src={product.image} alt={product.name} />
+                    <h3>{product.name}</h3>
+                    <p class="description">{product.description}</p>
+                </div>
+            ))}
+        </div>
+    </main>
+</Layout>
+
+<style>
+    main {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 2rem;
+    }
+    h1 {
+        color: var(--primary-color);
+        text-align: center;
+    }
+    .intro {
+        text-align: center;
+        margin-bottom: 2rem;
+        max-width: 800px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    .product-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 2rem;
+    }
+    .product-card {
+        background-color: white;
+        border-radius: 8px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        padding: 1rem;
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+    }
+    .product-card img {
+        max-width: 100%;
+        height: 200px;
+        object-fit: cover;
+        border-radius: 4px;
+        margin-bottom: 1rem;
+    }
+    .product-card h3 {
+        color: var(--primary-color);
+        margin-bottom: 0.5rem;
+    }
+    .description {
+        font-size: 0.9em;
+        line-height: 1.4;
+        margin-bottom: 1rem;
+    }
+</style>

@@ -1,0 +1,158 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const forumTopics = [
+    { 
+        id: 1,
+        title: "如何平衡工作与生活?", 
+        replies: 23, 
+        views: 156,
+        description: "在这个话题中，我们讨论如何在繁忙的工作中找到时间照顾自己和家人。分享你的时间管理技巧和放松方法。",
+        link: "https://www.mbalib.com/ask/question-3cac76e37160d9d4b297af99d32515f5.html"
+    },
+    { 
+        id: 2,
+        title: "分享你的职场经验", 
+        replies: 45, 
+        views: 302,
+        description: "无论你是职场新人还是资深人士，都欢迎分享你的职场故事、经验教训和成功秘诀。让我们互相学习，共同成长。",
+        link: "https://m.hrloo.com/dk/74625"
+    },
+    { 
+        id: 3,
+        title: "女性健康知识交流", 
+        replies: 67, 
+        views: 589,
+        description: "关于女性特有的健康问题，从生理周期到更年期，从饮食到运动，在这里我们可以自由讨论，互相支持。",
+        link: "https://cn.nytimes.com/health/20231106/menopause-hot-flashes-hormone-therapy/"
+    },
+    { 
+        id: 4,
+        title: "如何应对职场性骚扰?", 
+        replies: 89, 
+        views: 1024,
+        description: "职场性骚扰是许多女性面临的严重问题。在这个话题中，我们讨论如何识别、应对和举报性骚扰，以及如何寻求帮助。",
+        link: "https://www.itslaw.com/wusong-article/391415663668756538"
+    },
+    { 
+        id: 5,
+        title: "育儿经验分享", 
+        replies: 56, 
+        views: 478,
+        description: "为人父母是一项充满挑战的工作。在这里，我们分享育儿经验、技巧和心得，互相支持，共同成长。",
+        link: "https://m.36kr.com/p/2770769577278471"
+    },
+];
+
+---
+
+<Layout title="女生论坛 | 女生救助服务平台">
+    <main>
+        <h1>女生论坛</h1>
+        <p class="intro">加入我们的社区，分享经验，寻求建议，互帮互助。这里是一个安全、友善的空间，我们鼓励每一位成员积极参与，贡献自己的智慧。</p>
+        <div class="forum-topics">
+            {forumTopics.map(topic => (
+                <a href={topic.link} class="topic-link" target="_blank" rel="noopener noreferrer">
+                    <div class="topic-card">
+                        <h3>{topic.title}</h3>
+                        <p class="stats">浏览: {topic.views} | 回复: {topic.replies}</p>
+                        <p class="description">{topic.description}</p>
+                    </div>
+                </a>
+            ))}
+        </div>
+        <div class="new-topic">
+            <h2>创建新话题</h2>
+            <form>
+                <input type="text" placeholder="话题标题" required>
+                <textarea placeholder="话题描述" required></textarea>
+                <button type="submit">发布话题</button>
+            </form>
+        </div>
+    </main>
+</Layout>
+
+<style>
+    main {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 2rem;
+    }
+    h1, h2 {
+        color: var(--primary-color);
+        text-align: center;
+    }
+    .intro {
+        text-align: center;
+        margin-bottom: 2rem;
+        max-width: 800px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    .forum-topics {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 2rem;
+        margin-bottom: 3rem;
+    }
+    .topic-link {
+        text-decoration: none;
+        color: inherit;
+    }
+    .topic-card {
+        background-color: white;
+        border-radius: 8px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        padding: 1.5rem;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .topic-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
+    }
+    .topic-card h3 {
+        color: var(--primary-color);
+        margin-bottom: 0.5rem;
+    }
+    .topic-card .stats {
+        font-size: 0.9em;
+        color: #666;
+        margin-bottom: 1rem;
+    }
+    .topic-card .description {
+        font-size: 0.95em;
+        line-height: 1.5;
+    }
+    .new-topic {
+        background-color: #f8f8f8;
+        border-radius: 8px;
+        padding: 2rem;
+        margin-top: 3rem;
+    }
+    .new-topic p {
+        text-align: center;
+        margin-bottom: 1rem;
+    }
+    .new-topic form {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+    }
+    .new-topic input, .new-topic textarea {
+        padding: 0.5rem;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+    }
+    .new-topic button {
+        background-color: var(--link-color);
+        color: white;
+        border: none;
+        padding: 0.5rem 1rem;
+        border-radius: 4px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+    }
+    .new-topic button:hover {
+        background-color: var(--primary-color);
+    }
+</style>
